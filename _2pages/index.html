@@ -545,6 +545,173 @@
             border-top: 1px solid #444;
         }
 
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.2);
+        }
+
+        .blog-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.1);
+        }
+
+        .blog-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 100%);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
+        }
+
+        .blog-day {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .blog-month {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+
+        .blog-content {
+            padding: 2.5rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .blog-link {
+            color: #e91e63;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .blog-link:hover {
+            color: #ff6b9d;
+            transform: translateX(5px);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 5px 25px rgba(233, 30, 99, 0.15);
+        }
+
+        .faq-question {
+            padding: 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.05) 0%, rgba(255, 107, 157, 0.05) 100%);
+        }
+
+        .faq-question h3 {
+            font-size: 1.3rem;
+            color: #2c2c2c;
+            font-weight: 600;
+            margin: 0;
+            flex: 1;
+        }
+
+        .faq-icon {
+            font-size: 2rem;
+            color: #e91e63;
+            font-weight: 300;
+            transition: transform 0.3s;
+            margin-left: 1rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 2rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 2rem;
+        }
+
+        .faq-answer p {
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+        }
+
         /* Decorative Elements */
         .decorative-heart {
             color: #e91e63;
@@ -600,8 +767,39 @@
             .image-gallery {
                 grid-template-columns: 1fr;
             }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question h3 {
+                font-size: 1.1rem;
+            }
         }
     </style>
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    
+                    // Close all items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -687,6 +885,123 @@
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michał - Filmowiec" class="person-image">
                     <h4>Michał - Filmowiec</h4>
                     <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. <span class="decorative-heart">😉</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="container section" id="blog">
+            <h2>Blog <span class="decorative-heart">📝</span></h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="blog-image">
+                        <div class="blog-date">
+                            <span class="blog-day">15</span>
+                            <span class="blog-month">LIS</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Jak przygotować się do sesji ślubnej?</h3>
+                        <p>Przygotowania do sesji ślubnej to kluczowy element, który wpływa na końcowy efekt. W tym artykule dzielimy się naszymi najlepszymi wskazówkami, jak przygotować się do sesji, aby uzyskać piękne i naturalne zdjęcia...</p>
+                        <a href="#" class="blog-link">Czytaj więcej →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="blog-image">
+                        <div class="blog-date">
+                            <span class="blog-day">08</span>
+                            <span class="blog-month">LIS</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Najpiękniejsze miejsca na sesje ślubne w Rzeszowie</h3>
+                        <p>Rzeszów i okolice oferują wiele malowniczych miejsc idealnych na sesje ślubne. Od zabytkowych parków po nowoczesne lokalizacje - przedstawiamy nasze ulubione miejsca, które tworzą magiczne tło dla Waszych zdjęć...</p>
+                        <a href="#" class="blog-link">Czytaj więcej →</a>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <div class="blog-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog post" class="blog-image">
+                        <div class="blog-date">
+                            <span class="blog-day">01</span>
+                            <span class="blog-month">LIS</span>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Film ślubny - co warto wiedzieć?</h3>
+                        <p>Film ślubny to niezwykła pamiątka, która pozwala Wam wrócić do tego wyjątkowego dnia. Opowiadamy o procesie tworzenia filmu, od planowania po montaż, oraz o tym, jak współpracować z filmowcem, aby uzyskać wymarzony efekt...</p>
+                        <a href="#" class="blog-link">Czytaj więcej →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="container section" id="faq">
+            <h2>Najczęściej zadawane pytania <span class="decorative-heart">❓</span></h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Jak wcześnie należy zarezerwować termin?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Zalecamy rezerwację z minimum 6-12 miesięcznym wyprzedzeniem, szczególnie w sezonie ślubnym (maj-wrzesień). Popularne terminy są szybko zajmowane, dlatego im wcześniej się skontaktujecie, tym większa szansa na rezerwację wymarzonego terminu.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Co wchodzi w skład pakietu fotograficznego?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Nasz pakiet podstawowy obejmuje: całodzienną obsługę fotografa, sesję narzeczeńską, reportaż z przygotowań, ceremonię ślubną, wesele, sesję plenerową oraz edycję i retusz wszystkich zdjęć. Wszystkie zdjęcia dostarczamy w wysokiej rozdzielczości na pendrive lub w formie online.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Czy oferujecie również filmowanie?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak! Oferujemy zarówno fotografię, jak i filmowanie. Możecie wybrać pakiet łączony (foto + video) lub zamówić każdą usługę osobno. Posiadamy profesjonalny sprzęt, w tym drona do ujęć z powietrza, który dodaje wyjątkowego charakteru Waszemu filmowi.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Jak długo trwa obróbka zdjęć?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Obróbka zdjęć trwa zwykle 4-6 tygodni od dnia ślubu. Wszystkie zdjęcia są starannie wyselekcjonowane i poddane profesjonalnej edycji. W przypadku filmu, czas realizacji wynosi około 8-12 tygodni, w zależności od złożoności projektu.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Czy dojeżdżacie do innych miast?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tak, uwielbiamy podróżować! Dojeżdżamy zarówno w Polsce, jak i za granicę. Koszty dojazdu są ustalane indywidualnie w zależności od odległości. Nie straszne nam wyjazdy, także zagraniczne - każda para to dla nas wyjątkowa historia do opowiedzenia.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Jak wygląda proces współpracy?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Proces zaczynamy od spotkania (osobiście lub online), podczas którego poznajemy Wasze oczekiwania, styl i wizję. Następnie przygotowujemy szczegółowy plan dnia, omawiamy lokalizacje i szczegóły. W dniu ślubu jesteśmy z Wami od początku do końca, a po uroczystości zajmujemy się obróbką i dostarczeniem gotowych materiałów.</p>
+                    </div>
                 </div>
             </div>
         </section>
