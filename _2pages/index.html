@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&A Wedding || Fotografia ślubna i film</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4a574;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #333;
+        }
+
+        .section h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #d4a574;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .person-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .person-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d4a574;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: #f9f9f9;
+            padding: 3rem;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            background: #d4a574;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #c0955f;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #333;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #d4a574;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav {
+            margin: 1rem 0;
+        }
+
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-nav a:hover {
+            color: #d4a574;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .contact-form {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <img src="cropped-logo-ma-1.png" alt="M&A Wedding Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#oferta">Oferta</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Uchwycamy piękno chwil!</h1>
+        <h2>Fotografia ślubna i film || Rzeszów</h2>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Services Section -->
+        <section class="container section" id="oferta">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Fotografujemy 📷</h3>
+                    <p>Fotografia jest sztuką uwiecznienia emocji, a piękno chwil tkwi w szczegółach. Naszym celem jest uchwycenie każdego najmniejszego elementu, aby stworzyć dla Was niezwykłą pamiątkę na lata. Wykonujemy fotografie zarówno grupowe, portretowe, ale także dbamy o detale. Zawsze staramy się być krok przed Wami, aby żaden moment nie został pominięty. Jednocześnie staramy się być „niewidzialni", zapewniając Wam pełną swobodę i komfort.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Filmujemy 🎥</h3>
+                    <p>W filmie tak samo jak w fotografii stawiamy na emocje. Nasza praca nie polega jedynie na rejestrowaniu materiału, ale także na zapewnieniu Wam komfortu z naszej strony, abyście czuli się swobodnie przed obiektywem i nie bali się okazywać sobie uczuć. Zazwyczaj nagrywamy z ziemi, ale posiadamy też drona, który pozwala ubarwić Wasz film o ciekawe ujęcia z powietrza.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <p><strong>M&A Wedding</strong> to profesjonalny duet oferujący szeroko pojęte usługi z zakresu fotografii i filmowania ślubów i wesel. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie oraz uwielbiamy podróżować, dlatego nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze, uchwyceniu wyjątkowości chwil. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię 😉</p>
+                
+                <p>Połączenie fotografii oraz filmu w jednej firmie jest niezwykłą zaletą, ponieważ umiemy ze sobą pracować, zapewniając Wam pełen profesjonalizm we wszystkim, co robimy. Każda para to inna, niesamowita historia do opowiedzenia. Pragniemy stworzyć Waszą bajkę w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="container section">
+            <h2>O nas 🙋🏻🙋🏻‍♂️</h2>
+            <div class="about-grid">
+                <div class="person-card">
+                    <h4>Ola - Fotograf</h4>
+                    <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. 😉</p>
+                </div>
+
+                <div class="person-card">
+                    <h4>Michał - Filmowiec</h4>
+                    <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. 😉</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="container section" id="kontakt">
+            <h2>Kontakt 🔌</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Imię i nazwisko (wymagane)</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Adres email (wymagane)</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event">Data i miejsce uroczystości (wymagane)</label>
+                        <input type="text" id="event" name="event" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Kilka słów o Was i o Waszym ślubie</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="source">Skąd o nas wiesz?</label>
+                        <select id="source" name="source">
+                            <option value="">Wybierz...</option>
+                            <option value="facebook">Facebook</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="google">Google</option>
+                            <option value="znajomi">Znajomi</option>
+                            <option value="inne">Inne</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Wyślij wiadomość</button>
+                </form>
+
+                <div class="contact-info">
+                    <p><strong>📞 Fotograf Ola: 668 826 381</strong></p>
+                    <p><strong>📞 Filmowiec Michał: 724 520 253</strong></p>
+                </div>
+
+                <div class="social-links">
+                    <h3>Zapraszamy na nasze portale społecznościowe:</h3>
+                    <div>
+                        <a href="#" title="Facebook">Facebook</a>
+                        <a href="#" title="YouTube">Youtube</a>
+                        <a href="#" title="Instagram">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img src="cropped-logo-ma-1.png" alt="M&A Wedding Logo" class="footer-logo">
+            <h3>M&A Wedding || Fotografia ślubna i film.</h3>
+            <p>Uchwycamy piękno chwil! Fotografia ślubna i film.</p>
+            <nav class="footer-nav">
+                <a href="#home">Home</a>
+                <a href="#oferta">Oferta</a>
+                <a href="#blog">Blog</a>
+                <a href="#faq">FAQ</a>
+                <a href="#kontakt">Kontakt</a>
+            </nav>
+            <p class="copyright">© 2019 Company. All rights reserved. Powered by Phlox Theme</p>
+        </div>
+    </footer>
+</body>
+</html>
