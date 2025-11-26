@@ -12,23 +12,25 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
             color: #333;
+            background: #fafafa;
         }
 
         /* Header */
         header {
-            background: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #fff 0%, #fefefe 100%);
+            padding: 1.2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         .header-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -37,245 +39,530 @@
         }
 
         .logo {
-            height: 60px;
+            height: 70px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
+            color: #2c2c2c;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #e91e63, #ff6b9d);
+            transition: width 0.3s;
         }
 
         nav a:hover {
-            color: #d4a574;
+            color: #e91e63;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            padding: 4rem 2rem;
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-image: 
+                linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)),
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #333;
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out;
         }
 
         .hero h2 {
-            font-size: 1.5rem;
-            color: #666;
+            font-size: 1.8rem;
+            color: #fff;
             font-weight: 300;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Main Content */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
         .section {
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
         }
 
         .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
             text-align: center;
-            color: #333;
+            color: #2c2c2c;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #e91e63, #ff6b9d);
+            border-radius: 2px;
         }
 
         .section h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #d4a574;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #e91e63;
+            font-weight: 600;
         }
 
         .section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 1.5rem;
             text-align: justify;
+            color: #444;
         }
 
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .service-card {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+            padding: 3rem;
+            border-radius: 20px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #e91e63, #ff6b9d, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(233, 30, 99, 0.2);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
         }
 
         .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Image Gallery */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(233, 30, 99, 0.3), rgba(118, 75, 162, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
         }
 
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
         .person-card {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #fff 0%, #fafafa 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .person-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 30, 99, 0.1) 0%, transparent 70%);
+            transition: transform 0.5s;
+        }
+
+        .person-card:hover::before {
+            transform: scale(1.5);
+        }
+
+        .person-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .person-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 5px solid #e91e63;
+            box-shadow: 0 10px 30px rgba(233, 30, 99, 0.3);
+            display: block;
         }
 
         .person-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #d4a574;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #e91e63;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .person-card p {
+            position: relative;
+            z-index: 1;
         }
 
         /* Contact Form */
         .contact-form {
-            background: #f9f9f9;
-            padding: 3rem;
-            border-radius: 10px;
-            max-width: 800px;
+            background: linear-gradient(135deg, #fff 0%, #f8f8f8 100%);
+            padding: 4rem;
+            border-radius: 25px;
+            max-width: 900px;
             margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            font-size: 1.05rem;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             font-size: 1rem;
             font-family: inherit;
+            transition: all 0.3s;
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e91e63;
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px;
         }
 
         .btn-submit {
-            background: #d4a574;
+            background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 100%);
             color: #fff;
-            padding: 1rem 2rem;
+            padding: 1.2rem 3rem;
             border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(233, 30, 99, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
         }
 
         .btn-submit:hover {
-            background: #c0955f;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(233, 30, 99, 0.4);
+            background: linear-gradient(135deg, #ff6b9d 0%, #e91e63 100%);
         }
 
         .contact-info {
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid #e0e0e0;
         }
 
         .contact-info p {
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            color: #2c2c2c;
         }
 
         /* Social Media */
         .social-links {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .social-links h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+        }
+
+        .social-links div {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .social-links a {
-            color: #333;
-            font-size: 1.5rem;
+            color: #e91e63;
+            font-size: 1.3rem;
             text-decoration: none;
-            transition: color 0.3s;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #e91e63;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 600;
         }
 
         .social-links a:hover {
-            color: #d4a574;
+            background: linear-gradient(135deg, #e91e63 0%, #ff6b9d 100%);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
         }
 
         /* Footer */
         footer {
-            background: #333;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
             color: #fff;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .footer-logo {
-            height: 50px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .footer-content > p {
+            margin-bottom: 2rem;
+            color: #ccc;
         }
 
         .footer-nav {
-            margin: 1rem 0;
+            margin: 2rem 0;
         }
 
         .footer-nav a {
             color: #fff;
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 1.5rem;
+            transition: color 0.3s;
+            font-weight: 500;
         }
 
         .footer-nav a:hover {
-            color: #d4a574;
+            color: #ff6b9d;
         }
 
         .copyright {
-            margin-top: 1rem;
+            margin-top: 2rem;
             font-size: 0.9rem;
             color: #999;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Decorative Elements */
+        .decorative-heart {
+            color: #e91e63;
+            font-size: 2rem;
+            margin: 0 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.5rem;
             }
 
             nav ul {
@@ -284,8 +571,13 @@
                 text-align: center;
             }
 
+            .hero {
+                height: 70vh;
+                min-height: 500px;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .hero h2 {
@@ -293,11 +585,20 @@
             }
 
             .section h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
             .contact-form {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -321,28 +622,52 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>Uchwycamy piękno chwil!</h1>
-        <h2>Fotografia ślubna i film || Rzeszów</h2>
+        <div class="hero-content">
+            <h1>Uchwycamy piękno chwil!</h1>
+            <h2>Fotografia ślubna i film || Rzeszów</h2>
+        </div>
     </section>
 
     <!-- Main Content -->
     <main>
         <!-- Services Section -->
         <section class="container section" id="oferta">
+            <h2>Nasze Usługi</h2>
+            
             <div class="services-grid">
                 <div class="service-card">
-                    <h3>Fotografujemy 📷</h3>
+                    <span class="service-icon">📷</span>
+                    <h3>Fotografujemy</h3>
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fotografia ślubna" class="service-image">
                     <p>Fotografia jest sztuką uwiecznienia emocji, a piękno chwil tkwi w szczegółach. Naszym celem jest uchwycenie każdego najmniejszego elementu, aby stworzyć dla Was niezwykłą pamiątkę na lata. Wykonujemy fotografie zarówno grupowe, portretowe, ale także dbamy o detale. Zawsze staramy się być krok przed Wami, aby żaden moment nie został pominięty. Jednocześnie staramy się być „niewidzialni", zapewniając Wam pełną swobodę i komfort.</p>
                 </div>
 
                 <div class="service-card">
-                    <h3>Filmujemy 🎥</h3>
+                    <span class="service-icon">🎥</span>
+                    <h3>Filmujemy</h3>
+                    <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Filmowanie ślubne" class="service-image">
                     <p>W filmie tak samo jak w fotografii stawiamy na emocje. Nasza praca nie polega jedynie na rejestrowaniu materiału, ale także na zapewnieniu Wam komfortu z naszej strony, abyście czuli się swobodnie przed obiektywem i nie bali się okazywać sobie uczuć. Zazwyczaj nagrywamy z ziemi, ale posiadamy też drona, który pozwala ubarwić Wasz film o ciekawe ujęcia z powietrza.</p>
                 </div>
             </div>
 
+            <!-- Image Gallery -->
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ślub">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Para młoda">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wesele">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fotografia ślubna">
+                </div>
+            </div>
+
             <div class="section">
-                <p><strong>M&A Wedding</strong> to profesjonalny duet oferujący szeroko pojęte usługi z zakresu fotografii i filmowania ślubów i wesel. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie oraz uwielbiamy podróżować, dlatego nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze, uchwyceniu wyjątkowości chwil. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię 😉</p>
+                <p><strong>M&A Wedding</strong> to profesjonalny duet oferujący szeroko pojęte usługi z zakresu fotografii i filmowania ślubów i wesel. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie oraz uwielbiamy podróżować, dlatego nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze, uchwyceniu wyjątkowości chwil. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię <span class="decorative-heart">❤️</span></p>
                 
                 <p>Połączenie fotografii oraz filmu w jednej firmie jest niezwykłą zaletą, ponieważ umiemy ze sobą pracować, zapewniając Wam pełen profesjonalizm we wszystkim, co robimy. Każda para to inna, niesamowita historia do opowiedzenia. Pragniemy stworzyć Waszą bajkę w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego.</p>
             </div>
@@ -350,23 +675,25 @@
 
         <!-- About Section -->
         <section class="container section">
-            <h2>O nas 🙋🏻🙋🏻‍♂️</h2>
+            <h2>O nas <span class="decorative-heart">🙋🏻</span><span class="decorative-heart">🙋🏻‍♂️</span></h2>
             <div class="about-grid">
                 <div class="person-card">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ola - Fotograf" class="person-image">
                     <h4>Ola - Fotograf</h4>
-                    <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. 😉</p>
+                    <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. <span class="decorative-heart">😉</span></p>
                 </div>
 
                 <div class="person-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Michał - Filmowiec" class="person-image">
                     <h4>Michał - Filmowiec</h4>
-                    <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. 😉</p>
+                    <p>Jesteśmy parą w życiu i w biznesie, którą połączyła wspólna pasja do fotografii i filmowania. Latamy dronem, pracujemy tylko na profesjonalnym sprzęcie. Na co dzień mieszkamy w Rzeszowie, ale uwielbiamy podróżować, więc nie straszne nam wyjazdy, także zagraniczne. Kreatywność oraz umiejętność uchwycenia niezapomnianych chwil to jedne z wielu cech, które charakteryzują naszą twórczość. W swojej pracy skupiamy się na wydobyciu emocji oraz poszukiwaniu tego, co najpiękniejsze. Wiemy, jak ważny jest dla Was TEN DZIEŃ, dlatego dbamy o każdy detal, aby stworzyć razem z Wami Waszą, wyjątkową historię w oparciu o Wasze zainteresowania, oczekiwania, i to, jacy jesteście. Służymy pełną dozą pomysłów, ale jesteśmy też otwarci na wszelkie propozycje, abyśmy razem stworzyli coś wyjątkowego. <span class="decorative-heart">😉</span></p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
         <section class="container section" id="kontakt">
-            <h2>Kontakt 🔌</h2>
+            <h2>Kontakt <span class="decorative-heart">🔌</span></h2>
             <div class="contact-form">
                 <form>
                     <div class="form-group">
