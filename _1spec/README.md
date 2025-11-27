@@ -9,10 +9,16 @@ Projekt strony internetowej dla M&A Wedding - profesjonalnego studia oferująceg
 ```
 ma-weddingstudio/
 ├── _1spec/          # Dokumentacja projektu
-│   └── README.md
-└── _2spec/          # Pliki źródłowe strony
+│   ├── README.md    # Główna dokumentacja
+│   └── FRAMEWORKS.md # Dokumentacja alternatywnych frameworków
+└── _2pages/         # Pliki źródłowe strony
     └── index.html
 ```
+
+## Dokumentacja
+
+- **[README.md](./README.md)** - Główna dokumentacja projektu
+- **[FRAMEWORKS.md](./FRAMEWORKS.md)** - Dokumentacja alternatywnych frameworków (React, Vue, Svelte, Astro, etc.)
 
 ## Technologie
 
