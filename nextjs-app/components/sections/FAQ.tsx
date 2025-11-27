@@ -54,16 +54,16 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-4">
             Najczęściej zadawane pytania{' '}
             <motion.span
               className="inline-block"
@@ -73,28 +73,28 @@ export default function FAQ() {
               ❓
             </motion.span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg overflow-hidden border-2 border-transparent hover:border-pink-200 transition-all duration-300"
+              className="bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden border-2 border-transparent hover:border-pink-200 transition-all duration-300 hover-lift card-shadow"
             >
               <motion.button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 flex justify-between items-center text-left group"
+                className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex justify-between items-center text-left group"
                 whileHover={{ backgroundColor: 'rgba(233, 30, 99, 0.05)' }}
               >
-                <h3 className="text-xl font-semibold text-gray-800 pr-4 group-hover:text-pink-600 transition-colors">
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 pr-3 sm:pr-4 group-hover:text-pink-600 transition-colors leading-tight">
                   {faq.question}
                 </h3>
                 <motion.span
-                  className="text-3xl text-pink-600 font-light flex-shrink-0"
+                  className="text-2xl sm:text-3xl text-pink-600 font-light flex-shrink-0"
                   animate={{ rotate: openIndex === index ? 45 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -111,7 +111,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-8 pb-6 text-gray-700 leading-relaxed">
+                    <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-5 md:pb-6 text-sm sm:text-base text-gray-700 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.div>

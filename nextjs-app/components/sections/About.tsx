@@ -28,16 +28,16 @@ export default function About() {
   });
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-4">
             O nas{' '}
             <motion.span
               className="inline-block"
@@ -54,10 +54,10 @@ export default function About() {
               🙋🏻‍♂️
             </motion.span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {team.map((person, index) => (
             <PersonCard key={person.name} person={person} index={index} inView={inView} />
           ))}
@@ -82,7 +82,7 @@ function PersonCard({
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       whileHover={{ y: -10 }}
-      className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl relative overflow-hidden group"
+      className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl relative overflow-hidden group hover-lift card-shadow"
     >
       {/* Animated background gradient */}
       <motion.div
@@ -98,11 +98,11 @@ function PersonCard({
         <motion.div
           whileHover={{ scale: 1.1, rotate: 5 }}
           transition={{ duration: 0.3 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
-          <div className="relative w-48 h-48 mx-auto">
+          <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mx-auto">
             <motion.div
-              className="absolute inset-0 rounded-full border-4 border-pink-500"
+              className="absolute inset-0 rounded-full border-3 sm:border-4 border-pink-500"
               animate={{
                 boxShadow: [
                   '0 0 20px rgba(233, 30, 99, 0.3)',
@@ -117,15 +117,15 @@ function PersonCard({
               alt={`${person.name} - ${person.role}`}
               fill
               className="rounded-full object-cover"
-              sizes="192px"
+              sizes="(max-width: 640px) 128px, (max-width: 768px) 160px, 192px"
             />
           </div>
         </motion.div>
 
-        <h4 className="text-2xl font-bold text-pink-600 mb-4">
+        <h4 className="text-xl sm:text-2xl font-bold text-pink-600 mb-3 sm:mb-4">
           {person.name} - {person.role}
         </h4>
-        <p className="text-gray-700 leading-relaxed">{person.description}</p>
+        <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{person.description}</p>
       </div>
     </motion.div>
   );

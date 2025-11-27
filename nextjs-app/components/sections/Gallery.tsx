@@ -30,14 +30,14 @@ export default function Gallery() {
   });
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4"
         >
           {galleryImages.map((image, index) => (
             <motion.div
@@ -46,24 +46,24 @@ export default function Gallery() {
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.05, zIndex: 10 }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
+              className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
             >
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               />
               <motion.div
                 className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
               />
               <motion.div
-                className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 initial={false}
               >
-                <p className="font-semibold">{image.alt}</p>
+                <p className="font-semibold text-sm sm:text-base">{image.alt}</p>
               </motion.div>
             </motion.div>
           ))}

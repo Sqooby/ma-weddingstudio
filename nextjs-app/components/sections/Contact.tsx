@@ -32,16 +32,16 @@ export default function Contact() {
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="kontakt" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-4">
             Kontakt{' '}
             <motion.span
               className="inline-block"
@@ -51,22 +51,22 @@ export default function Contact() {
               🔌
             </motion.span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 md:p-12 shadow-2xl"
+          className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl card-shadow"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3 }}
             >
-              <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+              <label htmlFor="name" className="block text-gray-700 font-semibold mb-2 text-sm sm:text-base">
                 Imię i nazwisko (wymagane)
               </label>
               <input
@@ -76,7 +76,7 @@ export default function Contact() {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none text-sm sm:text-base"
               />
             </motion.div>
 
@@ -85,7 +85,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.4 }}
             >
-              <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+              <label htmlFor="email" className="block text-gray-700 font-semibold mb-2 text-sm sm:text-base">
                 Adres email (wymagane)
               </label>
               <input
@@ -95,7 +95,7 @@ export default function Contact() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none text-sm sm:text-base"
               />
             </motion.div>
 
@@ -104,7 +104,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.5 }}
             >
-              <label htmlFor="event" className="block text-gray-700 font-semibold mb-2">
+              <label htmlFor="event" className="block text-gray-700 font-semibold mb-2 text-sm sm:text-base">
                 Data i miejsce uroczystości (wymagane)
               </label>
               <input
@@ -114,7 +114,7 @@ export default function Contact() {
                 required
                 value={formData.event}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none text-sm sm:text-base"
               />
             </motion.div>
 
@@ -123,7 +123,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.6 }}
             >
-              <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
+              <label htmlFor="message" className="block text-gray-700 font-semibold mb-2 text-sm sm:text-base">
                 Kilka słów o Was i o Waszym ślubie
               </label>
               <textarea
@@ -132,7 +132,7 @@ export default function Contact() {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none resize-none"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none resize-none text-sm sm:text-base"
               />
             </motion.div>
 
@@ -141,7 +141,7 @@ export default function Contact() {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.7 }}
             >
-              <label htmlFor="source" className="block text-gray-700 font-semibold mb-2">
+              <label htmlFor="source" className="block text-gray-700 font-semibold mb-2 text-sm sm:text-base">
                 Skąd o nas wiesz?
               </label>
               <select
@@ -149,7 +149,7 @@ export default function Contact() {
                 name="source"
                 value={formData.source}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none text-sm sm:text-base"
               >
                 <option value="">Wybierz...</option>
                 <option value="facebook">Facebook</option>
@@ -163,7 +163,7 @@ export default function Contact() {
 
             <motion.button
               type="submit"
-              className="w-full py-4 px-6 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-full uppercase tracking-wider shadow-lg mt-8"
+              className="w-full py-3 sm:py-4 px-4 sm:px-6 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-bold rounded-full uppercase tracking-wider shadow-lg mt-6 sm:mt-8 text-sm sm:text-base"
               whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(233, 30, 99, 0.4)' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -175,13 +175,13 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.8 }}
-            className="mt-12 pt-8 border-t-2 border-gray-200 text-center"
+            className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t-2 border-gray-200 text-center"
           >
-            <p className="text-xl font-semibold text-gray-800 mb-2">
-              📞 Fotograf Ola: 668 826 381
+            <p className="text-lg sm:text-xl font-semibold text-gray-800 mb-2">
+              📞 Fotograf Ola: <a href="tel:668826381" className="text-pink-600 hover:text-pink-700">668 826 381</a>
             </p>
-            <p className="text-xl font-semibold text-gray-800">
-              📞 Filmowiec Michał: 724 520 253
+            <p className="text-lg sm:text-xl font-semibold text-gray-800">
+              📞 Filmowiec Michał: <a href="tel:724520253" className="text-pink-600 hover:text-pink-700">724 520 253</a>
             </p>
           </motion.div>
 
@@ -189,17 +189,17 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 1 }}
-            className="mt-8 text-center"
+            className="mt-6 sm:mt-8 text-center"
           >
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
               Zapraszamy na nasze portale społecznościowe:
             </h3>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
               {['Facebook', 'Youtube', 'Instagram'].map((social, index) => (
                 <motion.a
                   key={social}
                   href="#"
-                  className="px-6 py-3 border-2 border-pink-600 text-pink-600 font-semibold rounded-full hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-600 hover:text-white transition-all"
+                  className="px-4 sm:px-6 py-2 sm:py-3 border-2 border-pink-600 text-pink-600 font-semibold rounded-full hover:bg-gradient-to-r hover:from-pink-600 hover:to-purple-600 hover:text-white transition-all text-sm sm:text-base"
                   whileHover={{ scale: 1.1, y: -3 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}

@@ -64,12 +64,14 @@ nextjs-app/
 ## 🎯 Komponenty
 
 ### Header
+
 - Sticky header z efektem blur
 - Animowane linki nawigacyjne
 - Responsive mobile menu
 - Smooth scroll
 
 ### Hero
+
 - Parallax effect na tle
 - Floating particles
 - Animowany gradient overlay
@@ -77,23 +79,27 @@ nextjs-app/
 - Scroll indicator
 
 ### Packages
+
 - Karty pakietów z efektami hover
 - Shimmer effects
 - Animowane ikony checkmark
 - Featured package highlight
 
 ### Blog
+
 - Grid layout z animacjami
 - Hover effects na kartach
 - Date badges
 - Image zoom on hover
 
 ### FAQ
+
 - Accordion z animacjami
 - Smooth expand/collapse
 - Hover effects
 
 ### Contact
+
 - Formularz z walidacją
 - Animowane pola input
 - Social media links z efektami
@@ -101,6 +107,7 @@ nextjs-app/
 ## 🎨 Efekty Wizualne
 
 ### Animacje
+
 - Fade in/out
 - Slide up/down
 - Scale animations
@@ -108,12 +115,14 @@ nextjs-app/
 - Gradient shifts
 
 ### Interakcje
+
 - Mouse parallax
 - Hover transformations
 - Click animations
 - Scroll-triggered animations
 
 ### Wizualne
+
 - Glass morphism
 - Glow effects
 - Shimmer effects
@@ -123,14 +132,17 @@ nextjs-app/
 ## 🔧 Konfiguracja
 
 ### Obrazy zewnętrzne
+
 Obrazy z Unsplash są skonfigurowane w `next.config.ts`. Aby dodać własne obrazy, dodaj domenę do `remotePatterns`.
 
 ### Kolory
+
 Kolory można zmienić w `tailwind.config.ts` lub bezpośrednio w komponentach używając klas Tailwind.
 
 ## 📱 Responsywność
 
 Strona jest w pełni responsywna z breakpointami:
+
 - Mobile: < 768px
 - Tablet: 768px - 1024px
 - Desktop: > 1024px
@@ -138,12 +150,14 @@ Strona jest w pełni responsywna z breakpointami:
 ## 🚀 Deployment
 
 ### Vercel (Rekomendowane)
+
 ```bash
 npm install -g vercel
 vercel
 ```
 
 ### Inne platformy
+
 ```bash
 npm run build
 # Wgraj folder .next na serwer
@@ -158,6 +172,7 @@ npm run build
 ## 🎓 Nauka
 
 Projekt demonstruje:
+
 - Next.js App Router
 - Framer Motion animations
 - TypeScript w React

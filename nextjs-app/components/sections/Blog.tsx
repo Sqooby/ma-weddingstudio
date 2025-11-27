@@ -77,26 +77,26 @@ export default function Blog() {
   });
 
   return (
-    <section id="blog" className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section id="blog" className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 px-4">
             Blog <span className="gradient-text-animated">📝</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600 mb-6">
+          <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 px-4">
             Dzielimy się z Wami naszą wiedzą, doświadczeniem i inspiracjami
             związanymi z fotografią i filmowaniem ślubów.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
+          <div className="w-20 sm:w-24 h-1 bg-gradient-to-r from-pink-600 to-purple-600 mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {blogPosts.map((post, index) => (
             <BlogCard key={post.slug} post={post} index={index} inView={inView} />
           ))}
@@ -113,9 +113,9 @@ function BlogCard({ post, index, inView }: { post: BlogPost; index: number; inVi
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       whileHover={{ y: -10, scale: 1.02 }}
-      className="bg-gradient-to-br from-white to-gray-50 rounded-3xl overflow-hidden shadow-xl cursor-pointer group"
+      className="bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl cursor-pointer group hover-lift card-shadow"
     >
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
         <motion.div
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.5 }}
@@ -131,22 +131,22 @@ function BlogCard({ post, index, inView }: { post: BlogPost; index: number; inVi
         </motion.div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         <motion.div
-          className="absolute top-6 right-6 bg-gradient-to-r from-pink-600 to-purple-600 text-white p-4 rounded-xl text-center shadow-lg"
+          className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gradient-to-r from-pink-600 to-purple-600 text-white p-3 sm:p-4 rounded-lg sm:rounded-xl text-center shadow-lg"
           whileHover={{ scale: 1.1, rotate: 5 }}
         >
-          <span className="block text-3xl font-bold">{post.day}</span>
+          <span className="block text-2xl sm:text-3xl font-bold">{post.day}</span>
           <span className="block text-xs uppercase tracking-wider">{post.month}</span>
         </motion.div>
       </div>
 
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-pink-600 transition-colors">
+      <div className="p-4 sm:p-6">
+        <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 group-hover:text-pink-600 transition-colors leading-tight">
           {post.title}
         </h3>
-        <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+        <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3 leading-relaxed">{post.excerpt}</p>
         <motion.a
           href={`/blog/${post.slug}`}
-          className="text-pink-600 font-semibold inline-flex items-center gap-2 group-hover:gap-4 transition-all"
+          className="text-pink-600 font-semibold inline-flex items-center gap-2 text-sm sm:text-base group-hover:gap-4 transition-all"
           whileHover={{ x: 5 }}
         >
           Czytaj więcej →

@@ -48,9 +48,9 @@ export default function Header() {
               <Image
                 src="/cropped-logo-ma-1.png"
                 alt="M&A Wedding Logo"
-                width={70}
-                height={70}
-                className="drop-shadow-lg"
+                width={isScrolled ? 60 : 70}
+                height={isScrolled ? 60 : 70}
+                className="drop-shadow-lg transition-all duration-300"
                 priority
               />
             </Link>
@@ -82,12 +82,13 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-800 hover:text-pink-600 transition-colors"
+            className="md:hidden p-2 text-gray-800 hover:text-pink-600 transition-colors text-2xl font-bold"
             aria-label="Toggle menu"
           >
             <motion.div
               animate={isMobileMenuOpen ? { rotate: 90 } : { rotate: 0 }}
               transition={{ duration: 0.3 }}
+              className="w-6 h-6 flex items-center justify-center"
             >
               {isMobileMenuOpen ? '✕' : '☰'}
             </motion.div>

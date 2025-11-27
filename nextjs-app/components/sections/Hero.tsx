@@ -5,18 +5,34 @@ import { useEffect, useState } from 'react';
 
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
-      });
+      if (!isMobile) {
+        setMousePosition({
+          x: (e.clientX / window.innerWidth - 0.5) * 20,
+          y: (e.clientY / window.innerHeight - 0.5) * 20,
+        });
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+    if (!isMobile) {
+      window.addEventListener('mousemove', handleMouseMove);
+    }
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, [isMobile]);
 
   // Floating particles
   const particles = Array.from({ length: 20 }, (_, i) => ({
@@ -30,12 +46,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg"
       style={{
         backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
       }}
     >
       {/* Animated gradient overlay */}
@@ -79,24 +94,25 @@ export default function Hero() {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 text-center px-4 max-w-4xl"
+        className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl w-full parallax-content"
         style={{
-          transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`,
+          transform: !isMobile 
+            ? `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
+            : 'none',
         }}
       >
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 drop-shadow-2xl px-4"
         >
-          <span className="gradient-text-animated">Uchwycamy</span>
-          <br />
+          <span className="gradient-text-animated block mb-2">Uchwycamy</span>
           <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="block mt-2"
+            className="block"
           >
             piękno chwil!
           </motion.span>
@@ -106,7 +122,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="text-xl md:text-2xl text-white/90 font-light tracking-widest uppercase mb-8 drop-shadow-lg"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/95 font-light tracking-wider sm:tracking-widest uppercase mb-6 sm:mb-8 drop-shadow-lg px-4"
         >
           Fotografia ślubna i film || Rzeszów
         </motion.h2>
@@ -121,7 +137,7 @@ export default function Hero() {
           {[0, 1, 2].map((i) => (
             <motion.span
               key={i}
-              className="text-4xl text-pink-400"
+              className="text-3xl sm:text-4xl text-pink-400"
               animate={{
                 y: [0, -20, 0],
                 scale: [1, 1.2, 1],
@@ -141,7 +157,7 @@ export default function Hero() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-6 sm:bottom-10 left-1/2 transform -translate-x-1/2 hidden sm:block"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
